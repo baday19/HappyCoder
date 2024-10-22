@@ -1,0 +1,125 @@
+{
+  "name": "happycoder",
+  "displayName": "happycoder",
+  "description": "ai plus se",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.completeCode",
+        "title": "代码补全"
+      },
+      {
+        "command": "extension.promptMode",
+        "title": "提示生成"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "extension.submenu",
+        "label": "HappyCoder"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "extension.submenu",
+          "group": "z_commands"
+        }
+      ],
+      "extension.submenu": [
+        {
+          "command": "extension.completeCode"
+        },
+        {
+          "command": "extension.promptMode"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "happycoder",
+          "title": "HappyCoder",
+          "icon": "resources/logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "happycoder": [
+        {
+          "id": "homeView",
+          "name": "",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "HappyCoder",
+      "properties": {
+        "happycoder.autoCompletion": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "是否开启自动补全。"
+        },
+        "happycoder.candidateCount": {
+          "type": "number",
+          "default": 1,
+          "minimum": 1,
+          "markdownDescription": "补全建议的最大数量(暂时没用)。"
+        },
+        "happycoder.completionDelay": {
+          "type": "number",
+          "minimum": 0.5,
+          "default": 0.5,
+          "description": "在编辑器中没有新更改的情况下开始获得补全建议的延迟（以秒为单位）。您可以更改此值，以便在使用我们的扩展进行编码时获得更好的体验，并避免一些无用的补全建议。"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "extension.completeCode",
+        "key": "Alt+T",
+        "when": "editorFocus && !editorReadonly"
+      },
+      {
+        "command": "extension.promptMode",
+        "key": "Alt+ctrl+T",
+        "when": "editorFocus && !editorReadonly"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.8",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.94.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.11.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "git-open": "^3.1.0"
+  }
+}
