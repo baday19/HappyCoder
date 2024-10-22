@@ -9,8 +9,6 @@ Happy Coding!
 </video>
 
 
-
-
 ## 基本用法
 
 需保证VSCode版本 >= 1.94.0。安装插件并全局激活HappyCoder，有以下功能：
