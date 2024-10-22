@@ -4,6 +4,10 @@ HappyCoder是VSCode平台上的扩展插件，可以实现通过描述生成代�
 
 Happy Coding!
 
+<video width="320" height="240" controls>
+    <source src="https://raw.githubusercontent.com/baday19/HappyCoder/refs/heads/main/doc/demo.mp4" type="video/mp4">
+</video>
+
 ## 基本用法
 
 需保证VSCode版本 >= 1.94.0。安装插件并全局激活HappyCoder，有以下功能：
