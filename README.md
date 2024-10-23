@@ -25,18 +25,22 @@ Happy Coding!
 ### 自动代码补全
 
 在该功能中，HappyCoder将在您停止输入时，从光标处开始生成（。生成完毕之后会以灰色显示，按`Tab`即可插入生成结果。 在生成多个候选的情况下，可以使用`Alt/Option+[` 或 `]`在几个候选间进行切换。如果你对现有建议不满意，可以使用`Alt/Option+N`去获得新的候选。
+![auto](https://github.com/baday19/HappyCoder/blob/main/doc/demp-auto.gif?raw=true)
 
 ### 主动代码补全
 
 在该功能中，您可以选取代码片段，然后按下`Alt+T` (或在编辑区的右键菜单中选择`代码补全`)，HappyCoder将基于您选择的代码片段插入续写的代码。
+![complete](https://github.com/baday19/HappyCoder/blob/main/doc/demo-complete.gif?raw=true)
 
 ### 提示代码生成
 
 在该功能中，您可以在输入中添加额外的提示来实现一些有趣的功能，包括并不限于代码解释、概括、以特定风格生成等。选择您想要的代码，按`Ctrl+Alt+T`触发提示代码生成，输入额外的提示，最后模型将根据`[INPUT]+[CODE]`的模板组织输入提供给模型进行生成。其中，`[INPUT]`是指您在输入框输入的内容，`[CODE]`是指您选择的代码。
+![prompt](https://github.com/baday19/HappyCoder/blob/main/doc/demo-prompt.gif?raw=true)
 
 ### 生成模型对话
 
 在该功能中，您可以与HappyCoder的聊天模型进行对话实现各种功能，包括解释代码、生成注释等。您只需要将问题输入在下方的输入框后，按下`enter`即可发送信息，HappyCoder将根据您的问题生成对应的内容。
+![chat](https://github.com/baday19/HappyCoder/blob/main/doc/demo-chat.gif?raw=true)
 
 ## NOTE
 
