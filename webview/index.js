@@ -1,13 +1,14 @@
 const instructUrl = 'http://localhost:7888/v1'
 const md = window.markdownit()
 
-const app = new Vue({
-  el: "#app",
-  data: {
-    activeNav: 0,
-    chatHistories: [],
-    chatMsg: '',
-    thinking: false
+const app = Vue.createApp({
+  data: () => {
+    return {
+      activeNav: 0,
+      chatHistories: [],
+      chatMsg: '',
+      thinking: false
+    }
   },
   methods: {
     switchNav(idx) {
@@ -39,34 +40,40 @@ const app = new Vue({
   }
 })
 
+app.mount("#app")
+
 const chatWithInstructLLM = async (prompt) => {
   const formData = {
     model: 'instruct',
     messages: [
-      {"role": "system", "content": "You are a helpful assistant."},
-      {"role": "user", "content": prompt}
+      { "role": "system", "content": "You are a helpful assistant." },
+      { "role": "user", "content": prompt }
     ]
   }
-  const response = await POST(`${instructUrl}/chat/completions`, formData)
+  const response = await POST('http://localhost:7888/v1/chat/completions', formData)
   const data = await response.json()
   const choice = data['choices'][0]
-  const ans =  choice['message']['content']
+  const ans = choice['message']['content']
   const markedAns = md.render(ans)
   return markedAns
 }
 
 const POST = async (url, data) => {
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data)
-  };
-  const res = await fetch(url, options);
-  if (!res.ok) {
-    throw new Error(`HTTP error! status: ${res.status}`);
-  }
+  try {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    };
+    const res = await fetch(url, options);
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
 
-  return res
+    return res
+  } catch (error) {
+    console.log(error)
+  }
 }

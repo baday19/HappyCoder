@@ -25,7 +25,7 @@ Happy Coding!
 ### 自动代码补全
 
 在该功能中，HappyCoder将在您停止输入时，从光标处开始生成（。生成完毕之后会以灰色显示，按`Tab`即可插入生成结果。 在生成多个候选的情况下，可以使用`Alt/Option+[` 或 `]`在几个候选间进行切换。如果你对现有建议不满意，可以使用`Alt/Option+N`去获得新的候选。
-![auto](https://github.com/baday19/HappyCoder/blob/main/doc/demp-auto.gif?raw=true)
+![auto](https://github.com/baday19/HappyCoder/blob/main/doc/demo-auto.gif?raw=true)
 
 ### 主动代码补全
 
